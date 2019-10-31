@@ -1,0 +1,26 @@
+#求解斐波那契数列 1，1,2,3,5...即F(0)=1，F(1)=1...
+#(1)递推法
+def fibonacci1(n):
+	a,b=1,1
+	for i in range(n):
+		a,b=b,a+b
+	return a
+
+for i in range(10):
+	print(fibonacci1(i),end=' ')
+
+#(2)递归法
+# def fibonacci2(n):
+# 	if (n<=1):
+# 		return n
+# 	return fibonacci2(n-2)+fibonacci2(n-1)
+
+# for i in range(20):
+# 	print(fibonacci2(i),end=' ')
+
+
+
+
+
+
+
