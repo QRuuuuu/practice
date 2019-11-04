@@ -1,21 +1,26 @@
+#单个心形获取信息输出
 import time
 import os
 words = input('please input the words you want to say!:')
 for item in words.split():
-	item = item +' '
-    print('\n'.join([''.join([(item[(x-y) % len(item)]
-        if ((x*0.05)**2+(y*0.1)**2-1)**3-(x*0.05)**2*(y*0.1)**3 <= 0 else ' ')
-    for x in range(-30, 30)]) for y in range(30, -30, -1)]))
-    time.sleep(1.5);
-#	letterlist = []
-#	for y in range(12, -12, -1):
-#		list_X = []
-	#	letters = ''
-	#	for x in range(-30, 30):
-	#		expression = ((x*0.05)**2+(y*0.1)**2-1)**3-(x*0.05)**2*(y*0.1)**3
-	#		if expression <= 0:
-	#			letters += item[(x-y) % len(item)]
-	#		else:
-	#			letters += ' '
-	#	list_X.append(letters)
-	#	letterlist += list_X
+    print('\n'.join([''.join([('Love'[(x-y) % len('Love')] if ((x*0.05)**2+(y*0.1)**2-1)**3-(x*0.05)**2*(y*0.1)**3 <= 0 else ' ') for x in range(-30, 30)]) for y in range(30, -30, -1)]))
+    time.sleep(1.5)
+
+#多个心形输出
+import time
+sentence = "Dear, I love you forever!"
+for char in sentence.split():
+   allChar = []
+   for y in range(12, -12, -1):
+       lst = []
+       lst_con = ''
+       for x in range(-30, 30):
+            formula = ((x*0.05)**2+(y*0.1)**2-1)**3-(x*0.05)**2*(y*0.1)**3
+            if formula <= 0:
+                lst_con += char[(x) % len(char)]
+            else:
+                lst_con += ' '
+       lst.append(lst_con)
+       allChar += lst
+   print('\n'.join(allChar))
+   time.sleep(1)
