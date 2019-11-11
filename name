@@ -1,0 +1,16 @@
+class Student(object):
+	def __init__(self,name,score):
+		self.name = name
+		self.score = score
+	def show(self):
+		print(self.name)
+		print(self.score)
+
+def main():
+	a = Student('h',10)
+	print (a.name)
+	a.show()
+	pass
+#if_name_=='_main_';
+#main()
+main()
