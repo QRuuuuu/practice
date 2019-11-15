@@ -1,0 +1,21 @@
+#判断是否是回文数
+def hw(n):
+    p=n
+    k=0
+    while p!=0:
+        k=k*10+p%10
+        p=p//10
+    if k==n:
+        return True
+    else:
+        return False
+print(hw(121))
+print(hw(13451))
+
+#遍历所有五位数是否是回文数
+def is_huiwen(n):
+    reversed_str= str(n)
+    return reversed_str == reversed_str[-1::-1]   # 
+
+output = filter(is_huiwen,range(10000,100000))
+print(list(output))
