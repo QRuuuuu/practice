@@ -1,0 +1,45 @@
+class Solution(object):
+
+    def intersection(self, nums1, nums2):
+        # 计算交集
+        result_intersection_ = []
+        for i in nums1:
+            if i in nums2:
+                result_intersection_.append(i)
+        return result_intersection_
+
+    def intersect(self, nums1, nums2):
+        """
+            计算它们的交集, 补集，并集
+        """
+        result_diff = set(nums1) - set(nums2)
+        result_unin = set(nums1) | set(nums2)
+        result_intersection = set(nums1) & set(nums2)
+
+
+
+        result_diff = list(result_diff)
+        result_unin = list(result_unin)
+        result_intersection = list(result_intersection)
+
+        return result_diff, result_unin, result_intersection, self.intersection(nums1, nums2)
+
+
+def main():
+    nums1 = [1,2,2,1]
+    nums2 = [2,2]
+
+    # 调用类
+    sol = Solution()
+    result_diff, result_unin, result_intersection, result_intersection_ = sol.intersect(nums1, nums2)
+
+    print('nums1 = [1,2,2,1]  nums2 = [2,2]')
+    print('差集: {}'.format(result_diff))
+    print('并集: {}'.format(result_unin))
+    print('集合中符号求得交集: {}'.format(result_intersection))
+    print('要求的交集: {}'.format(result_intersection_))
+
+
+if __name__ == '__main__':
+    main()
+
