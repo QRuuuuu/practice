@@ -1,0 +1,41 @@
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+            删除重复项后的数组
+        """
+        if (len(nums) == 0):
+            return 0
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if (nums[j] == nums[i]):
+                    nums[j] = []
+
+        # 把为[]的数删掉
+        while [] in nums:
+            nums.remove([])
+
+        remo_lists_len = len(nums)
+        return remo_lists_len, nums
+
+
+def main():
+    """
+        主函数
+    """
+    print('请输入任意数组(每个元素用空格隔开，如：1 1 2')
+    nums_str = input('请输入：')
+    str_list = nums_str.split(' ')
+
+    # 字符串列表转数值字符串
+    nums = []
+    for i in range(len(str_list)):
+        nums.append(float(str_list[i]))
+
+    # 调用类
+    sol = Solution()   # 执行类的初始化
+    remo_lists_len, remo_lists = sol.removeDuplicates(nums)  # 删除重复项后的数组
+    print('删除重复项后的数组为：{},长度为：{}'.format(remo_lists, remo_lists_len))
+
+
+if __name__ == '__main__':
+    main()
