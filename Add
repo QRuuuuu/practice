@@ -1,0 +1,20 @@
+class Solution(object):
+
+    def plusOne(self, digits):
+        digits[-1] = digits[-1]+1
+        return digits
+
+
+def main():
+    digits = [1, 2, 3]
+    print('原始数组为：[1,2,3]')
+
+    # 调用类
+    sol = Solution()   # 执行类的初始化
+    result = sol.plusOne(digits)
+
+    print('加1后的数组为: {}'.format(result))
+
+
+if __name__ == '__main__':
+    main()
