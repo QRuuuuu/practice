@@ -1,0 +1,14 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        for i in range(len(nums)):
+            result = False
+            if nums.count(nums[i]) >= 2:
+                result = True
+            return result
+def main():
+    nums = [1,1,1,3,3,4,3,2,4,2]
+    sol = Solution() 
+    result = sol.containsDuplicate(nums)
+    print('函数返回: {}'.format(result))
+if __name__ == '__main__':
+    main()
