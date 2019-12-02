@@ -1,0 +1,102 @@
+class Solution(object):
+    def __init__(self, board):
+        self.board = board
+
+    def row(self):
+        """
+            数字 1-9 在每一行只能出现一次
+        """
+        # 列循环，数组循环
+        for colum in range(0, 9):
+            # 行循环，i 操作
+            for i in range(0, 9):
+                # 行循环，j操作
+                for j in range(i + 1, 9):
+                    if (self.board[colum][i] == self.board[colum][j]) and type(self.board[colum][i]) == int:
+                        return False
+        return True
+
+    def colum(self):
+        """
+            数字 1-9 在每一列只能出现一次
+        """
+        # 行循环，数组循环
+        for colum in range(0, 9):
+            # 列循环，i 操作
+            for i in range(0, 9):
+                # 列循环，j操作
+                for j in range(i + 1, 9):
+                    if (self.board[i][colum] == self.board[j][colum]) and type(self.board[colum][i]) == int:
+                        return False
+        return True
+
+    def box(self, colum_start, colum_end, i_start, i_end,):
+        # 9个单元格的列循环
+        for colum in range(colum_start, colum_end):
+            # 行循环，i 操作
+            for i in range(i_start, i_end):
+                # 行循环，j操作，每次按列寻找
+                for j in range(i_start, i_end):
+                    if ((self.board[colum][i] == self.board[colum_start][j] if i != j else False)\
+                        or (self.board[colum][i] == self.board[colum_start + 1][j] if (
+                                    (i != j) and (colum != colum_start + 1)) else False)\
+                        or (self.board[colum][i] == self.board[colum_start + 2][j] if (
+                                    (i != j) and (colum != colum_start + 2)) else False))\
+                            and ord(self.board[colum][i]) != 46: 
+                        return False
+        return True
+
+    def nine(self):
+        # 三个box, 第1行
+        result_1 = self.box(0, 3, 0, 3)
+        result_2 = self.box(0, 3, 3, 6)
+        result_3 = self.box(0, 3, 6, 9)
+
+        # 三个box, 第2行
+        result_4 = self.box(3, 6, 0, 3)
+        result_5 = self.box(3, 6, 3, 6)
+        result_6 = self.box(3, 6, 6, 9)
+
+        # 三个box, 第3行
+        result_7 = self.box(6, 9, 0, 3)
+        result_8 = self.box(6, 9, 3, 6)
+        result_9 = self.box(6, 9, 6, 9)
+
+        if result_1 == result_2 == result_3 \
+                == result_4 == result_5 == result_6 \
+                == result_7 == result_8 == result_9 \
+                == True:
+            return True
+        else:
+            return False
+
+    def isValidSudoku(self):
+        result_row = self.row()
+        result_colum = self.colum()
+        result_nine = self.nine()
+        if result_row == result_colum == result_nine == True:
+            return True
+        else:
+            return False
+
+
+def main():
+    board = [
+  ["5","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]
+    sol = Solution(board)
+
+    result = sol.isValidSudoku()
+    print(result)
+
+
+if __name__ == '__main__':
+    main()
