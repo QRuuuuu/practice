@@ -1,0 +1,29 @@
+class Solution(object):
+    def moveZeroes(self, nums):
+        for i in range(len(nums)-1):
+            if nums[i] == 0 and nums[i+1] != 0:
+                t = nums[i]
+                nums[i] = nums[i+1]
+                nums[i+1] = t
+            elif (nums[i] == 0) and (nums[i+1] == 0):
+                step = 0
+                while nums[i] == 0:
+                    i += 1
+                    step += 1
+
+                    if i > len(nums)-1:
+                        i -= 1
+                        step -= 1
+                        break
+
+                t = nums[i]
+                nums[i] = nums[i - step]
+                nums[i - step] = t
+        return nums
+def main():
+    nums = [0,1,0,3,12]
+    sol = Solution()
+    result = sol.moveZeroes(nums)
+    print('移动后的数组为: {}'.format(result))
+if __name__ == '__main__':
+    main()
