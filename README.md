@@ -17,3 +17,4 @@
  12-3  移动数组的操作
  12-4  matplotlib绘图练习，绘制sin，cos，tan图像和绘制散点图像
  12-6  matplotlib绘图练习，绘制手写公式图，及饼状分布图
+ 12-9  matplotlib绘图练习，绘制柱状图
