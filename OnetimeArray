@@ -1,0 +1,25 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+            找出那个只出现了一次的元素
+        """
+        for i in range(len(nums)):
+            if nums.count(nums[i]) == 1:
+                return nums[i]
+
+
+def main():
+    """
+        主函数
+    """
+    nums = [4, 1, 2, 1, 2]
+
+    # 调用类
+    sol = Solution()   # 执行类的初始化
+    result = sol.singleNumber(nums)
+
+    print('输出: {}'.format(result))
+
+
+if __name__ == '__main__':
+    main()
