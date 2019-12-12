@@ -19,3 +19,4 @@
  12-6  matplotlib绘图练习，绘制手写公式图，及饼状分布图
  12-9  matplotlib绘图练习，绘制柱状图
  12-10 OnetimeArray数组练习
+ 12-12 SpinArray数组练习
